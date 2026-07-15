@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم لقمة هنية | الموقع الكامل</title>
+    <!-- أيقونات FontAwesome لعرض الأشكال الجميلة -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- القائمة العلوية -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">🍴 لقمة هنية</div>
+            <ul class="nav-links">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#menu">قائمة الطعام</a></li>
+                <li><a href="#reviews">آراء العملاء</a></li>
+                <li><a href="#book">حجز طاولة</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            <!-- أيقونة السلة مع عداد ديناميكي -->
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- نافذة سلة المشتريات الجانبية -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سلة المشتريات</h3>
+            <i class="fas fa-times close-btn" onclick="toggleCart()"></i>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- الوجبات المضافة ستظهر هنا عبر الجافا سكريبت -->
+            <p class="empty-msg">السلة فارغة حالياً</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">المجموع: <span id="cart-total">0</span> جنيه</div>
+            <button class="btn" style="width: 100%; margin-top: 10px;" onclick="checkout()">إتمام الطلب</button>
+        </div>
+    </div>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <h1>تذوق أفضل المأكولات الشرقية</h1>
+        <p>نقدم لك تجربة طعام فريدة ومميزة مع تشكيلة واسعة من الأطباق المحضرة بكل حب.</p>
+        <a href="#menu" class="btn">استكشف القائمة</a>
+    </section>
+
+    <!-- قسم من نحن الجديد -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: right;">قصة مطعمنا</h2>
+                <p>بدأنا منذ عام 2010 بشغف تقديم اللقمة الهنية والطعم الأصيل. نختار مكوناتنا بعناية فائقة ويومية من المزارع مباشرة لنضمن لك جودة ونكهة لا تُنسى.</p>
+                <div class="features">
+                    <div class="feat"><i class="fas fa-check-circle"></i> مكونات طازجة 100%</div>
+                    <div class="feat"><i class="fas fa-check-circle"></i> طهاة محترفون</div>
+                    <div class="feat"><i class="fas fa-check-circle"></i> توصيل سريع وآمن</div>
+                </div>
+            </div>
+            <div class="about-img">
+                <img src="https://unsplash.com" alt="المطعم">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- قسم آراء العملاء الجديد -->
+    <section class="reviews-section" id="reviews">
+        <h2 class="section-title">ماذا يقول عملاؤنا؟</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"الأكل ممتاز جداً والتوصيل سريع ونظيف، والمشويات طعمها روعة وتتبيلتها مميزة."</p>
+                <h4>أحمد محمد</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"البيتزا عندهم حكاية وعجينتها خفيفة، والمكان داخل المطعم هادئ وجميل ومناسب للعائلات."</p>
+                <h4>سارة علي</h4>
+            </div>
+        </div>
+    </section>
+    <!-- قسم قائمة الطعام المحدث -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">أطباقنا المميزة</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: #666;">استكشف تشكيلتنا الواسعة من أشهى المأكولات والمشروبات</p>
+        
+        <div class="menu-container">
+            
+            <!-- --- تصنيف المشويات والأطباق الرئيسية --- -->
+            <div class="menu-item">
+                <img src="image_e5621e00.png" alt="مشويات" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">مشويات</span>
+                    <h3>طبق مشويات مشكل</h3>
+                    <p>كباب، كفتة، وشيش طاووق مشوي على الفحم مع أرز ومقبلات.</p>
+                    <span class="price">150 جنيه</span>
+                    <button class="btn" onclick="addToCart('طبق مشويات مشكل', 150)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="image_e8b4245b.png" alt="نصف فرخة" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">مشويات</span>
+                    <h3>نصف دجاجة مشوية</h3>
+                    <p>دجاج متبل بخلطة المطعم السرية ومشوي على الفحم بدقة.</p>
+                    <span class="price">95 جنيه</span>
+                    <button class="btn" onclick="addToCart('نصف دجاجة مشوية', 95)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205833.png" alt="موزة ضاني" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">أطباق رئيسية</span>
+                    <h3>فتة موزة ضاني</h3>
+                    <p>أرز مصري بالخل والثوم، خبز محمص، وموزة لحم ضأن طرية.</p>
+                    <span class="price">210 جنيه</span>
+                    <button class="btn" onclick="addToCart('فتة موزة ضاني', 210)">طلب الآن</button>
+                </div>
+            </div>
+
+            <!-- --- تصنيف البيتزا والباستا --- -->
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205821.png" alt="بيتزا" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">بيتزا</span>
+                    <h3>بيتزا إيطالية مميزة</h3>
+                    <p>عجينة رقيقة غنية بجبنة الموتزاريلا الطازجة والخضروات.</p>
+                    <span class="price">90 جنيه</span>
+                    <button class="btn" onclick="addToCart('بيتزا إيطالية مميزة', 90)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205841.png" alt="بيتزا بيبيروني" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">بيتزا</span>
+                    <h3>بيتزا بيبيروني عشاق اللحم</h3>
+                    <p>صلصة طماطم إيطالية، موتزاريلا، وقطع البيبيروني البقري المقرمشة.</p>
+                    <span class="price">115 جنيه</span>
+                    <button class="btn" onclick="addToCart('بيتزا بيبيروني', 115)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205848.png" alt="باستا" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">باستا</span>
+                    <h3>باستا ألفريدو بالدجاج</h3>
+                    <p>مكرونة فوتشيني بصوص الكريمة الغني، الفطر، وقطع الدجاج.</p>
+                    <span class="price">85 جنيه</span>
+                    <button class="btn" onclick="addToCart('باستا ألفريدو بالدجاج', 85)">طلب الآن</button>
+                </div>
+            </div>
+
+            <!-- --- تصنيف المقبلات والسلطات --- -->
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205801.png" alt="سلطة" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">سلطات</span>
+                    <h3>سلطة يونانية صحية</h3>
+                    <p>خضار طازج مع جبنة الفيتا وزيت الزيتون البكر الأصيل.</p>
+                    <span class="price">45 جنيه</span>
+                    <button class="btn" onclick="addToCart('سلطة يونانية صحية', 45)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205754.png" alt="سلطة سيزر" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">سلطات</span>
+                    <h3>سلطة سيزر بالدجاج</h3>
+                    <p>خس كابوتشا، دجاج مشوي، خبز محمص، وصوص السيزر مع البارميزان.</p>
+                    <span class="price">60 جنيه</span>
+                    <button class="btn" onclick="addToCart('سلطة سيزر بالدجاج', 60)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205602.png" alt="سمبوسك" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">مقبلات</span>
+                    <h3>طبق سمبوسك مشكل</h3>
+                    <p>قطع سمبوسك مقرمشة محشوة بالجبنة الغنية واللحم المفروم (6 قطع).</p>
+                    <span class="price">40 جنيه</span>
+                    <button class="btn" onclick="addToCart('طبق سمبوسك مشكل', 40)">طلب الآن</button>
+                </div>
+            </div>
+
+            <!-- --- تصنيف الحلويات والمشروبات --- -->
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205635.png" alt="كيك شوكولاتة" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">حلويات</span>
+                    <h3>مولتن كيك الشوكولاتة</h3>
+                    <p>كيك الشوكولاتة الساخن بقلب ذائب يقدم مع بوله آيس كريم فانيليا.</p>
+                    <span class="price">55 جنيه</span>
+                    <button class="btn" onclick="addToCart('مولتن كيك', 55)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205615.png" alt="ليمون نعناع" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">مشروبات</span>
+                    <h3>عصير ليمون بالنعناع طازج</h3>
+                    <p>مزيج منعش من الليمون الطازج وأوراق النعناع الأخضر والثلج.</p>
+                    <span class="price">30 جنيه</span>
+                    <button class="btn" onclick="addToCart('عصير ليمون بالنعناع', 30)">طلب الآن</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="لقطة شاشة 2026-07-15 205551.png" alt="آيس كريم" class="menu-img">
+                <div class="menu-info">
+                    <span style="font-size: 12px; color: #ffa502; font-weight: bold; display: block; margin-bottom: 5px;">حلويات</span>
+                    <h3>طبق آيس كريم مشكل</h3>
+                    <p>ثلاث بولات من اختيارك (شوكولاتة، فانيليا، فراولة، أو مانجو).</p>
+                    <span class="price">35 جنيه</span>
+                    <button class="btn" onclick="addToCart('طبق آيس كريم مشكل', 35)">طلب الآن</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم حجز الطاولات -->
+    <section class="booking-section" id="book">
+        <h2 class="section-title">احجز طاولتك الآن</h2>
+        <form class="booking-form" id="resForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" required id="name">
+            </div>
+            <div class="form-group">
+                <label>التاريخ</label>
+                <input type="date" required id="date">
+            </div>
+            <div class="form-group">
+                <label>عدد الأفراد</label>
+                <select id="guests">
+                    <option>فردين</option>
+                    <option>4 أفراد</option>
+                    <option>6 أفراد أو أكثر</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">تأكيد الحجز</button>
+        </form>
+    </section>
+
+    <!-- قسم الاتصال بنا الجديد -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>معلومات التواصل</h3>
+                <p><i class="fas fa-map-marker-alt"></i>  مصر</p>
+                <p><i class="fas fa-phone"></i> 19xxx (الخط الساخن)</p>
+                <p><i class="fas fa-envelope"></i> info@loqmahania.com</p>
+                <p><i class="fas fa-clock"></i> نعمل يومياً من 12 ظهراً حتى 2 صباحاً</p>
+            </div>
+            <div class="contact-map">
+                <!-- خريطة توضيحية وهمية بشكل أنيق -->
+                <div style="width: 100%; height: 250px; background-color: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666;">
+                   <i class="fas fa-map-marked-alt" style="font-size: 40px; margin-left: 10px;"></i> [خريطة موقع المطعم النشطة تظهر هنا]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © مطعم لقمة هنية 2026</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
